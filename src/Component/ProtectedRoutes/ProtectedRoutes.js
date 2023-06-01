@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 
 function ProtectedRoutes({ Home }) {
 
@@ -8,10 +9,17 @@ function ProtectedRoutes({ Home }) {
 
   const Navigate = useNavigate();
 
-  if(isLoggedIn){
+  useEffect(()=>{
+    if(!isLoggedIn){
+      Navigate("/login")
+    }
+  },[])
+
+  /* if(isLoggedIn){
     return Home;    
-  }
-  return Navigate('/login');
+  } */
+
+  return Home;
   
 }
 
