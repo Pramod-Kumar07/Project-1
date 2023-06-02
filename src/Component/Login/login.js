@@ -4,15 +4,16 @@ import { FaApple } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { getUsers } from "./localStorage";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { userLogin } from "../Redux/LoginSlice";
+import { useDispatch } from "react-redux";
+
 
 export default function Login() {
   let userArr = JSON.parse(localStorage.getItem("users"));
 
   const Dispatch = useDispatch();
+
   const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,7 +21,7 @@ export default function Login() {
       let userEmail = document.getElementById("email").value;
       let userPass = document.getElementById("pass").value;
 
-      if (elem.email === userEmail && elem.password === userPass) {
+      if (elem.email == userEmail && elem.password == userPass) {
         alert("Login Successfull");
         Dispatch(userLogin(true));
         navigate("/home");
