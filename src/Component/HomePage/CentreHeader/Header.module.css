@@ -1,11 +1,11 @@
 .allitem{
     position:absolute;
-    left:27.5vw;
+    left:25vw;
     top:0%;
     width: 37.5rem;
     height:auto;
     overflow: hidden;
-   z-index: 1;
+   z-index: -1;
    border:0.5px solid whitesmoke;
    
 }
